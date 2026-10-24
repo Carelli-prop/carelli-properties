@@ -51,7 +51,17 @@ export default function RootLayout({
             <a className="logo" href="/" aria-label="Carelli Properties, home">
               <Logo />
             </a>
-            <nav className="site-nav" aria-label="Main">
+            <details className="site-menu">
+              <summary>Menu</summary>
+              <nav className="site-nav site-nav-panel" aria-label="Main">
+                {nav.map((item) => (
+                  <a key={item.href} href={item.href}>
+                    {item.label}
+                  </a>
+                ))}
+              </nav>
+            </details>
+            <nav className="site-nav site-nav-row" aria-label="Main">
               {nav.map((item) => (
                 <a key={item.href} href={item.href}>
                   {item.label}
