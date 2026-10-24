@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { site, apartments, type Apartment } from "@/content/site";
+import { useEffect, useRef, useState } from "react";
+import { site, apartments } from "@/content/site";
 import Picker from "./Picker";
 
 type BookableDate = { iso: string; label: string };
 
-export default function BookingFlow({ initialApartment }: { initialApartment?: string }) {
+export default function BookingFlow({
+  initialApartment,
+}: {
+  initialApartment?: string;
+}) {
   const [step, setStep] = useState(1);
   const [apartment, setApartment] = useState(initialApartment || "");
   const [dates, setDates] = useState<BookableDate[]>([]);
@@ -17,11 +21,13 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [note, setNote] = useState("");
-  
+
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [pulse, setPulse] = useState(false);
+  const prevCan = useRef(false);
 
   useEffect(() => {
     fetch("/api/dates")
@@ -50,6 +56,26 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
       .finally(() => setLoadingSlots(false));
   }, [apartment, date]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, [step, success]);
+
+  const canContinue =
+    (step === 1 && !!apartment) ||
+    (step === 2 && !!date) ||
+    (step === 3 && !!time && !loadingSlots && !error) ||
+    step === 4;
+
+  useEffect(() => {
+    if (canContinue && !prevCan.current && step < 4) {
+      setPulse(true);
+      const t = window.setTimeout(() => setPulse(false), 1000);
+      prevCan.current = canContinue;
+      return () => window.clearTimeout(t);
+    }
+    prevCan.current = canContinue;
+  }, [canContinue, step]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -66,13 +92,13 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
 
       if (res.ok) {
         setSuccess(true);
+      } else if (data.error === "slot-taken" && data.next) {
+        setError(
+          `That slot was just taken. The next available is ${data.next.label} at ${data.next.time}.`
+        );
+        if (data.next.iso !== date) setDate(data.next.iso);
       } else {
-        if (data.error === "slot-taken" && data.next) {
-          setError(`That slot was just taken. The next available is ${data.next.label} at ${data.next.time}.`);
-          if (data.next.iso !== date) setDate(data.next.iso);
-        } else {
-          setError(data.error || "Something went wrong.");
-        }
+        setError(data.error || "Something went wrong.");
       }
     } catch {
       setError("Network error. Please try again.");
@@ -91,18 +117,33 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
     return (
       <div className="card success-card">
         <h1>Viewing requested</h1>
-        <p className="lead">Thank you. Your request for {selectedFlat.label} is with us.</p>
-        
+        <p className="lead">
+          Thank you. Your request for {selectedFlat.label} is with us.
+        </p>
+
         <div className="summary-grid">
-          <div><strong>When:</strong> {selectedDate.label} at {time}</div>
-          <div><strong>Who:</strong> {name}</div>
-          <div><strong>Email:</strong> {email}</div>
-          {phone && <div><strong>Phone:</strong> {phone}</div>}
+          <div>
+            <strong>When:</strong> {selectedDate.label} at {time}
+          </div>
+          <div>
+            <strong>Who:</strong> {name}
+          </div>
+          <div>
+            <strong>Email:</strong> {email}
+          </div>
+          {phone && (
+            <div>
+              <strong>Phone:</strong> {phone}
+            </div>
+          )}
         </div>
 
         <h2>What happens next</h2>
         <p>Matt will reply to {email} within one working day to confirm.</p>
-        <p>If you need to change anything before then, WhatsApp him directly using the button below.</p>
+        <p>
+          If you need to change anything before then, WhatsApp him directly
+          using the button below.
+        </p>
 
         <div className="success-actions">
           <a
@@ -113,7 +154,7 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
           >
             Message Matt on WhatsApp
           </a>
-          <a href="/" className="btn btn-text">
+          <a href="/" className="btn-text">
             Back to home
           </a>
         </div>
@@ -124,7 +165,7 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
   return (
     <form onSubmit={handleSubmit} className="booking-form">
       <div className="step-indicator">Step {step} of 4</div>
-      
+
       <div className="step-content">
         {step === 1 && (
           <>
@@ -183,19 +224,37 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
             <div className="form-fields">
               <label>
                 Name
-                <input required type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <input
+                  required
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </label>
               <label>
                 Email
-                <input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input
+                  required
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </label>
               <label>
                 Phone (optional)
-                <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
               </label>
               <label>
                 Note (optional)
-                <textarea rows={3} value={note} onChange={(e) => setNote(e.target.value)} />
+                <textarea
+                  rows={3}
+                  value={note}
+                  onChange={(e) => setNote(e.target.value)}
+                />
               </label>
             </div>
             {error && <p className="error-text">{error}</p>}
@@ -205,25 +264,29 @@ export default function BookingFlow({ initialApartment }: { initialApartment?: s
 
       <div className="step-actions">
         {step > 1 && (
-          <button type="button" className="btn btn-secondary" onClick={() => setStep(step - 1)}>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => setStep(step - 1)}
+          >
             Back
           </button>
         )}
         {step < 4 ? (
           <button
             type="button"
-            className="btn btn-primary"
-            disabled={
-              (step === 1 && !apartment) ||
-              (step === 2 && !date) ||
-              (step === 3 && (!time || loadingSlots || !!error))
-            }
+            className={`btn btn-primary ${pulse ? "btn-attention" : ""}`}
+            disabled={!canContinue}
             onClick={() => setStep(step + 1)}
           >
             Continue
           </button>
         ) : (
-          <button type="submit" className="btn btn-primary" disabled={submitting}>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            disabled={submitting}
+          >
             {submitting ? "Requesting..." : "Request viewing"}
           </button>
         )}
