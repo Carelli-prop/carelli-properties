@@ -58,3 +58,12 @@ Running record of decisions for Carelli Properties.
 - Verify named shops, parks and walk times for the Area page, or keep the current honest generalities.
 
 
+
+
+
+## Pass 2 polish round 2
+- carole.jpg was uploaded with a capital C and renamed to lowercase. File names are case-sensitive on the web.
+- Added top padding to main so every page title clears the header.
+- Mobile nav is now a two-by-two grid. No sideways slide, nothing cut off. Desktop nav unchanged.
+
+
