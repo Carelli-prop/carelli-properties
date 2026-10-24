@@ -67,3 +67,10 @@ Running record of decisions for Carelli Properties.
 - Mobile nav is now a two-by-two grid. No sideways slide, nothing cut off. Desktop nav unchanged.
 
 
+
+## Pass 2 polish round 3
+- Mobile nav replaced with a Menu button and dropdown panel (details and summary, no JavaScript). Client rejected the two-by-two grid and the sideways scroller.
+- Native select rejected for nav: form-field feel, extra tap, links hidden from search engines.
+- Supabase signup via GitHub mis-assigned the org role. Fix is a new organization or email sign-in.
+
+
