@@ -403,3 +403,34 @@ a {
     transition: none;
   }
 }
+
+
+.hero {
+  margin-top: var(--s5);
+}
+
+.hero h1 {
+  margin-top: var(--s4);
+}
+
+.lead {
+  font-size: 1.25rem;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: var(--s4);
+}
+
+.flat-section {
+  margin-top: var(--s8);
+  padding-top: var(--s6);
+  border-top: 1px solid var(--hairline);
+}
+
+.flat-section:first-of-type {
+  border-top: none;
+  margin-top: var(--s5);
+}
+
+.cta-wrap {
+  margin-top: var(--s5);
+}
