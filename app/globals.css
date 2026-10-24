@@ -164,24 +164,16 @@ a[href^="https://wa.me"] {
 .site-nav {
   order: 2;
   width: 100%;
-  display: flex;
-  gap: var(--s4);
-  overflow-x: auto;
-  flex-wrap: nowrap;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--s3);
   padding-block: var(--s1);
-}
-
-.site-nav::-webkit-scrollbar {
-  display: none;
 }
 
 .site-nav a {
   color: var(--body);
   text-decoration: none;
   padding: var(--s2) 0;
-  white-space: nowrap;
 }
 
 .site-nav a:hover {
@@ -210,7 +202,8 @@ a[href^="https://wa.me"] {
     order: 1;
     width: auto;
     margin-left: auto;
-    overflow-x: visible;
+    display: flex;
+    gap: var(--s4);
   }
 }
 
@@ -442,7 +435,11 @@ a[href^="https://wa.me"] {
 }
 
 .hero {
-  margin-top: var(--s5);
+  margin-top: 0;
+}
+
+#main {
+  padding-top: var(--s5);
 }
 
 .hero h1 {
