@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site, type Apartment, money } from "@/content/site";
 
 export function LogoMark({ size = 34 }: { size?: number }) {
@@ -59,9 +59,18 @@ export function Photo({
   className?: string;
 }) {
   const [loaded, setLoaded] = useState(false);
+  const ref = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    if (ref.current && ref.current.complete) {
+      setLoaded(true);
+    }
+  }, []);
+
   return (
     <span className={`photo ${loaded ? "is-loaded" : ""} ${className}`}>
       <Image
+        ref={ref}
         src={src}
         alt={alt}
         width={width}
@@ -69,6 +78,7 @@ export function Photo({
         priority={priority}
         loading={priority ? undefined : "lazy"}
         onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
         sizes="(max-width: 768px) 100vw, 1000px"
       />
     </span>
