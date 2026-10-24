@@ -1,8 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 type Option = { value: string; label: string };
+
+const ITEM_HEIGHT = 60;
+const PAD_ITEMS = 2;
+
+function prefersReduced(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
 
 export default function Picker({
   label,
@@ -18,40 +28,94 @@ export default function Picker({
   emptyMessage?: string;
 }) {
   const listRef = useRef<HTMLUListElement>(null);
-  const ITEM_HEIGHT = 60;
-  const PADDING_ITEMS = 2;
+  const valueRef = useRef(value);
+  const settleTimer = useRef<number | null>(null);
+  const programmatic = useRef(false);
+
+  valueRef.current = value;
+
+  const selectedIndex = options.findIndex((o) => o.value === value);
+
+  const paint = () => {
+    const list = listRef.current;
+    if (!list || options.length === 0) return;
+    const centre = Math.max(
+      0,
+      Math.min(options.length - 1, Math.round(list.scrollTop / ITEM_HEIGHT))
+    );
+    Array.from(list.children).forEach((child, i) => {
+      child.setAttribute("aria-selected", i === centre ? "true" : "false");
+    });
+  };
+
+  const scrollToIndex = (i: number) => {
+    const list = listRef.current;
+    if (!list) return;
+    programmatic.current = true;
+    list.scrollTo({
+      top: i * ITEM_HEIGHT,
+      behavior: prefersReduced() ? "instant" : "smooth",
+    });
+    paint();
+    window.setTimeout(() => {
+      programmatic.current = false;
+    }, prefersReduced() ? 0 : 350);
+  };
 
   useEffect(() => {
-    if (!listRef.current || options.length === 0) return;
-    const index = options.findIndex((o) => o.value === value);
-    if (index >= 0) {
-      listRef.current.scrollTop = index * ITEM_HEIGHT;
+    const list = listRef.current;
+    if (!list || options.length === 0) return;
+    const i = options.findIndex((o) => o.value === valueRef.current);
+    if (i < 0) return;
+    const target = i * ITEM_HEIGHT;
+    if (Math.abs(list.scrollTop - target) > 1) {
+      programmatic.current = true;
+      list.scrollTo({ top: target, behavior: "instant" });
+      paint();
+      window.setTimeout(() => {
+        programmatic.current = false;
+      }, 0);
     }
   }, [value, options]);
 
   const handleScroll = () => {
-    if (!listRef.current) return;
-    const index = Math.round(listRef.current.scrollTop / ITEM_HEIGHT);
-    const clamped = Math.max(0, Math.min(index, options.length - 1));
-    if (options[clamped] && options[clamped].value !== value) {
-      onChange(options[clamped].value);
-    }
+    paint();
+    if (programmatic.current) return;
+    if (settleTimer.current) window.clearTimeout(settleTimer.current);
+    settleTimer.current = window.setTimeout(() => {
+      const list = listRef.current;
+      if (!list || options.length === 0) return;
+      const i = Math.max(
+        0,
+        Math.min(options.length - 1, Math.round(list.scrollTop / ITEM_HEIGHT))
+      );
+      const next = options[i];
+      if (next && next.value !== valueRef.current) onChange(next.value);
+    }, 90);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (!listRef.current || options.length === 0) return;
-    const index = options.findIndex((o) => o.value === value);
-    let nextIndex = index;
-    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+    if (options.length === 0) return;
+    const i = options.findIndex((o) => o.value === valueRef.current);
+    if (e.key === "ArrowDown") {
       e.preventDefault();
-      nextIndex = Math.min(index + 1, options.length - 1);
-    } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+      const next = Math.min(i + 1, options.length - 1);
+      onChange(options[next].value);
+      scrollToIndex(next);
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      nextIndex = Math.max(index - 1, 0);
-    }
-    if (nextIndex !== index) {
-      onChange(options[nextIndex].value);
-      listRef.current.scrollTop = nextIndex * ITEM_HEIGHT;
+      const next = Math.max(i - 1, 0);
+      onChange(options[next].value);
+      scrollToIndex(next);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      onChange(options[0].value);
+      scrollToIndex(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      const last = options.length - 1;
+      onChange(options[last].value);
+      scrollToIndex(last);
     }
   };
 
@@ -65,7 +129,7 @@ export default function Picker({
 
   return (
     <div className="picker-wrapper">
-      <label className="picker-label">{label}</label>
+      <span className="picker-label">{label}</span>
       <div className="picker-mask">
         <ul
           ref={listRef}
@@ -76,23 +140,20 @@ export default function Picker({
           onScroll={handleScroll}
           onKeyDown={handleKeyDown}
           style={{
-            paddingTop: `${PADDING_ITEMS * ITEM_HEIGHT}px`,
-            paddingBottom: `${PADDING_ITEMS * ITEM_HEIGHT}px`,
+            paddingTop: `${PAD_ITEMS * ITEM_HEIGHT}px`,
+            paddingBottom: `${PAD_ITEMS * ITEM_HEIGHT}px`,
           }}
         >
-          {options.map((opt) => (
+          {options.map((opt, i) => (
             <li
               key={opt.value}
               role="option"
-              aria-selected={opt.value === value}
+              aria-selected={i === selectedIndex}
               className="picker-item"
               style={{ height: `${ITEM_HEIGHT}px` }}
               onClick={() => {
                 onChange(opt.value);
-                if (listRef.current) {
-                  const idx = options.findIndex((o) => o.value === opt.value);
-                  listRef.current.scrollTop = idx * ITEM_HEIGHT;
-                }
+                scrollToIndex(i);
               }}
             >
               {opt.label}
