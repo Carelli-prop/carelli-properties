@@ -10,7 +10,7 @@ const instrument = Instrument_Serif({
   weight: "400",
   variable: "--font-instrument",
   display: "swap",
-  adjustFontFallback: "Times New Roman",
+  adjustFontFallback: true,
 });
 
 const inter = Inter({
