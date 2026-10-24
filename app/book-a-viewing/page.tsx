@@ -5,13 +5,14 @@ export const metadata: Metadata = {
   title: "Book a viewing",
 };
 
-export default function BookViewingPage({
+export default async function BookViewingPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const params = await searchParams;
   const initialApartment =
-    typeof searchParams.apartment === "string" ? searchParams.apartment : undefined;
+    typeof params.apartment === "string" ? params.apartment : undefined;
 
   return (
     <>
