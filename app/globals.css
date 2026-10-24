@@ -556,6 +556,224 @@ main.wrap > * + * {
   }
 }
 
+.booking-form {
+  max-width: 600px;
+  margin-inline: auto;
+  padding-block: var(--s4);
+}
+
+.step-indicator {
+  color: var(--meta);
+  font-size: 0.875rem;
+  margin-bottom: var(--s2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.step-content {
+  min-height: 300px;
+}
+
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+}
+
+.choice-btn {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: var(--s4);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, background-color 0.15s;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.choice-btn strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: var(--s1);
+}
+
+.choice-btn span {
+  color: var(--meta);
+}
+
+.choice-btn:hover {
+  border-color: var(--accent-strong);
+}
+
+.choice-btn.is-active {
+  border-color: var(--blue);
+  background: #f4f9f9;
+}
+
+.picker-wrapper {
+  margin-block: var(--s4);
+}
+
+.picker-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--meta);
+  margin-bottom: var(--s2);
+  text-align: center;
+}
+
+.picker-mask {
+  position: relative;
+  height: 240px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.picker {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.picker::-webkit-scrollbar {
+  display: none;
+}
+
+.picker-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  font-size: 1.25rem;
+  color: var(--meta);
+  cursor: pointer;
+  transition: color 0.2s, font-weight 0.2s;
+  user-select: none;
+}
+
+.picker-item[aria-selected="true"] {
+  color: var(--blue);
+  font-weight: 600;
+  font-family: var(--font-display, Georgia, serif);
+}
+
+.picker-empty {
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--hairline);
+  border-radius: var(--radius);
+  color: var(--meta);
+}
+
+.form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+  margin-block: var(--s4);
+}
+
+.form-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.form-fields input,
+.form-fields textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+  font: inherit;
+  color: var(--body);
+  background: var(--surface);
+}
+
+.form-fields input:focus,
+.form-fields textarea:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s3);
+  margin-top: var(--s6);
+}
+
+.step-actions .btn {
+  flex: 1;
+}
+
+.step-actions .btn-primary {
+  flex: 2;
+}
+
+.skeleton {
+  height: 240px;
+  background: linear-gradient(90deg, var(--hairline) 25%, #f0f0f0 50%, var(--hairline) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--meta);
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.error-text {
+  color: #c92a2a;
+  font-weight: 500;
+  margin-top: var(--s3);
+}
+
+.success-card {
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.summary-grid {
+  background: #f4f9f9;
+  border-radius: var(--radius);
+  padding: var(--s4);
+  margin-block: var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+}
+
+.success-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  margin-top: var(--s6);
+}
+
+.btn-text {
+  text-align: center;
+  color: var(--meta);
+  text-decoration: underline;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
