@@ -41,3 +41,20 @@ Running record of decisions for Carelli Properties.
 - Final rent and deposit.
 - Final available-from dates.
 - Domain purchase decision (needed for Resend sending and cutover).
+
+
+
+
+## Pass 2 polish (mobile critique round)
+- Display font swapped from Instrument Serif to Fraunces. Client found Instrument Serif too formal on mobile.
+- Primary button text changed from Carelli Blue to ink #1A1A1A on duck egg. Client taste call, and contrast improves to about 13:1.
+- Header CTA hidden on mobile because the sticky bottom bar covers it. Header static on mobile, sticky on desktop.
+- Mockup note bubble removed from public pages. It lives only in this file.
+- Gallery is now a horizontal scroll-snap scroller, keyboard focusable.
+- Photo fade-in bug fixed. Cached images never fired onLoad, so small fast photos stayed invisible. Carole's photo was the casualty.
+- Area page rewritten to cut unverified specifics. Shop names, park names and walk times moved to the pre-cutover check list below.
+
+## Pre-cutover check list (added)
+- Verify named shops, parks and walk times for the Area page, or keep the current honest generalities.
+
+
