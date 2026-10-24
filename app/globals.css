@@ -631,8 +631,27 @@ main.wrap > * + * {
   border-radius: var(--radius);
   background: var(--surface);
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.picker-mask::before,
+.picker-mask::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 60px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.picker-mask::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--surface), rgba(255, 255, 255, 0));
+}
+
+.picker-mask::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--surface), rgba(255, 255, 255, 0));
 }
 
 .picker {
@@ -643,6 +662,9 @@ main.wrap > * + * {
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scrollbar-width: none;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .picker::-webkit-scrollbar {
@@ -657,14 +679,14 @@ main.wrap > * + * {
   font-size: 1.25rem;
   color: var(--meta);
   cursor: pointer;
-  transition: color 0.2s, font-weight 0.2s;
+  transition: color 0.2s;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .picker-item[aria-selected="true"] {
   color: var(--blue);
   font-weight: 600;
-  font-family: var(--font-display, Georgia, serif);
 }
 
 .picker-empty {
