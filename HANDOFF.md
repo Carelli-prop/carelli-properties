@@ -74,3 +74,14 @@ Running record of decisions for Carelli Properties.
 - Supabase signup via GitHub mis-assigned the org role. Fix is a new organization or email sign-in.
 
 
+
+## Pass 3 Part B - Booking Flow
+- 4-step booking flow built: Apartment, Date (wheel), Time (wheel), Details.
+- Wheel pickers use CSS scroll-snap, fading masks, and keyboard/screen-reader support.
+- Step indicator shows "Step X of 4".
+- "Fully booked" state handled. If a chosen day is full, UI prompts for another day.
+- Success screen implemented with summary, "what happens next" copy, and WhatsApp `wa.me` deep link with pre-filled text.
+- Skeletons used for loading states, no spinners.
+
+
+
