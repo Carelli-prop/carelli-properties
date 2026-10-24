@@ -85,3 +85,11 @@ Running record of decisions for Carelli Properties.
 
 
 
+
+## Pass 4 Part 1
+- /admin bookings table added, locked behind HTTP Basic auth via middleware. ADMIN_PASSWORD env required.
+- Button press pulse (ButtonFeel) applied site-wide to all .btn and .choice-btn elements.
+- robots.ts, sitemap.ts, and a warm not-found.tsx added.
+- Email delivery ready: RESEND_API_KEY env switches on automatic request emails to carelliproperties@gmail.com.
+
+
