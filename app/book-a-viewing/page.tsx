@@ -1,31 +1,22 @@
 import type { Metadata } from "next";
+import BookingFlow from "@/components/BookingFlow";
 
 export const metadata: Metadata = {
   title: "Book a viewing",
 };
 
-export default function BookViewingPage() {
+export default function BookViewingPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
+  const initialApartment =
+    typeof searchParams.apartment === "string" ? searchParams.apartment : undefined;
+
   return (
     <>
-      <h1>Book a viewing</h1>
-      <p className="placeholder-note">
-        Step 1 of 4: Choose an apartment. (This is a static placeholder. The
-        interactive wheel-pickers and database logic will be built in Pass 3).
-      </p>
-      <p className="lead">
-        Viewings take about 15 minutes. Matt will meet you at the flat, show
-        you around, and answer any questions.
-      </p>
-      <div className="cta-wrap">
-        <a
-          href="https://wa.me/447470303576"
-          className="btn btn-secondary btn-big"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Or message Matt on WhatsApp
-        </a>
-      </div>
+      <h1 className="sr-only">Book a viewing</h1>
+      <BookingFlow initialApartment={initialApartment} />
     </>
   );
 }
