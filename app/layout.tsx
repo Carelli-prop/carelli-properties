@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Logo } from "@/components/ui";
 import StickyCta from "@/components/StickyCta";
 import { nav, site } from "@/content/site";
 
-const instrument = Instrument_Serif({
+const display = Fraunces({
   subsets: ["latin"],
-  weight: "400",
-  variable: "--font-instrument",
+  variable: "--font-display",
   display: "swap",
   adjustFontFallback: true,
 });
 
-const inter = Inter({
+const body = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-body",
   display: "swap",
   adjustFontFallback: true,
 });
@@ -42,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-GB" className={`${instrument.variable} ${inter.variable}`}>
+    <html lang="en-GB" className={`${display.variable} ${body.variable}`}>
       <body>
         <a className="skip-link" href="#main">
           Skip to content
