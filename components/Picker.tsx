@@ -5,7 +5,8 @@ import { useEffect, useRef } from "react";
 type Option = { value: string; label: string };
 
 const ITEM_HEIGHT = 60;
-const PAD_ITEMS = 2;
+const VIEW_HEIGHT = 240;
+const PAD = (VIEW_HEIGHT - ITEM_HEIGHT) / 2;
 
 function prefersReduced(): boolean {
   return (
@@ -139,10 +140,7 @@ export default function Picker({
           tabIndex={0}
           onScroll={handleScroll}
           onKeyDown={handleKeyDown}
-          style={{
-            paddingTop: `${PAD_ITEMS * ITEM_HEIGHT}px`,
-            paddingBottom: `${PAD_ITEMS * ITEM_HEIGHT}px`,
-          }}
+          style={{ paddingTop: `${PAD}px`, paddingBottom: `${PAD}px` }}
         >
           {options.map((opt, i) => (
             <li
