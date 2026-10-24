@@ -12,10 +12,6 @@ export default function ApartmentsPage() {
   return (
     <>
       <h1>The Apartments</h1>
-      <p className="placeholder-note">
-        Mockup: These photos show the style and finish of the flats. We will
-        upload specific photos for each flat before the site goes live.
-      </p>
       <p className="lead">
         Two small, freshly decorated furnished flats on Oldbury Road. Perfect
         for one person, or two who like each other very much.
@@ -41,7 +37,12 @@ export default function ApartmentsPage() {
             <strong>Who fits here:</strong> {flat.sleeps}
           </p>
           <FactsTable apartment={flat} />
-          <div className="gallery">
+          <div
+            className="gallery"
+            role="region"
+            aria-label={`Photos of ${flat.label}. Scroll sideways.`}
+            tabIndex={0}
+          >
             {flat.photos.gallery.map((img) => (
               <Photo
                 key={img.src}
