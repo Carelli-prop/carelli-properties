@@ -476,7 +476,18 @@ a[href^="https://wa.me"] {
 
 .cta-wrap {
   margin-top: var(--s5);
-  margin-bottom: var(--s3);
+  margin-bottom: var(--s4);
+}
+
+main.wrap > * + * {
+  margin-top: var(--s4);
+}
+
+@media (max-width: 767px) {
+  .cta-wrap .btn-primary,
+  .hero .btn-primary {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
