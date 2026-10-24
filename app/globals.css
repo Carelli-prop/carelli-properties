@@ -303,6 +303,27 @@ a[href^="https://wa.me"] {
   transform: translateY(1px);
 }
 
+.btn:disabled,
+.btn-primary:disabled {
+  background: var(--hairline);
+  color: var(--meta);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-attention {
+  animation: attention 0.9s ease 1;
+}
+
+@keyframes attention {
+  0% {
+    box-shadow: 0 0 0 0 rgba(29, 78, 137, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(29, 78, 137, 0);
+  }
+}
+
 .btn-secondary {
   background: var(--surface);
   color: var(--blue);
