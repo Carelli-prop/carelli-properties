@@ -4,15 +4,15 @@ export const maxDaysAhead = 60;
 
 type DayWindow = { start: string; end: string };
 
-// PLACEHOLDER windows until Matt confirms the real ones.
+// Confirmed by Matt: Mondays and Tuesdays only, 08:00 to 21:00.
 // 0 = Sunday through 6 = Saturday.
 export const weeklyWindows: Record<number, DayWindow[]> = {
   0: [],
-  1: [{ start: "10:00", end: "16:00" }],
-  2: [{ start: "10:00", end: "16:00" }],
-  3: [{ start: "10:00", end: "16:00" }],
-  4: [{ start: "10:00", end: "16:00" }],
-  5: [{ start: "10:00", end: "16:00" }],
+  1: [{ start: "08:00", end: "21:00" }],
+  2: [{ start: "08:00", end: "21:00" }],
+  3: [],
+  4: [],
+  5: [],
   6: [],
 };
 
