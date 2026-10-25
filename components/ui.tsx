@@ -139,7 +139,24 @@ export function FactsTable({ apartment }: { apartment: Apartment }) {
           <td>
             {apartment.epc}
             {apartment.epcNote ? `. ${apartment.epcNote}` : ""}
+            {`. Above the legal letting minimum of E. Valid until ${apartment.epcValidUntil}. Certificate ${apartment.epcCertificate}. `}
+            <a
+              href={apartment.epcRegisterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Check it on the government register
+            </a>
+            .
           </td>
+        </tr>
+        <tr>
+          <th scope="row">Warmth and glazing</th>
+          <td>{apartment.warmth}</td>
+        </tr>
+        <tr>
+          <th scope="row">Bathroom</th>
+          <td>{apartment.bathroom}</td>
         </tr>
         <tr>
           <th scope="row">Council tax</th>
