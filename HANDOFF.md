@@ -93,3 +93,10 @@ Running record of decisions for Carelli Properties.
 - Email delivery ready: RESEND_API_KEY env switches on automatic request emails to carelliproperties@gmail.com.
 
 
+
+## Micro-interactions decision
+- Site-wide press pulse (ButtonFeel) removed after external design review. Redundant with hover and :active, invisible on navigating taps, too loud for a calm brand.
+- Unlock pulse kept in the booking flow only, as a state-change signal. Policy written into DESIGN.md.
+
+
+
