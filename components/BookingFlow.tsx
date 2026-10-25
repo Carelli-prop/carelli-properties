@@ -21,6 +21,7 @@ export default function BookingFlow({
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [note, setNote] = useState("");
+  const [website, setWebsite] = useState("");
 
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -85,7 +86,16 @@ export default function BookingFlow({
       const res = await fetch("/api/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ apartment, date, time, name, email, phone, note }),
+        body: JSON.stringify({
+          apartment,
+          date,
+          time,
+          name,
+          email,
+          phone,
+          note,
+          website,
+        }),
       });
 
       const data = await res.json();
@@ -109,6 +119,12 @@ export default function BookingFlow({
 
   const selectedFlat = apartments.find((a) => a.id === apartment);
   const selectedDate = dates.find((d) => d.iso === date);
+
+  const summaryParts = [
+    apartment ? (apartment === "88a" ? "Flat 88A" : "Flat 88B") : "",
+    step >= 3 ? selectedDate?.label ?? "" : "",
+    step >= 4 ? time : "",
+  ].filter(Boolean);
 
   if (success && selectedFlat && selectedDate) {
     const waText = encodeURIComponent(
@@ -168,6 +184,9 @@ export default function BookingFlow({
       <div className="progress" aria-hidden="true">
         <span style={{ width: `${step * 25}%` }} />
       </div>
+      {summaryParts.length > 0 && (
+        <p className="meta step-summary">{summaryParts.join(" · ")}</p>
+      )}
 
       <div className="step-content" key={step}>
         {step === 1 && (
@@ -232,6 +251,7 @@ export default function BookingFlow({
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  autoComplete="name"
                 />
               </label>
               <label>
@@ -241,6 +261,7 @@ export default function BookingFlow({
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="email"
                 />
               </label>
               <label>
@@ -249,6 +270,7 @@ export default function BookingFlow({
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="tel"
                 />
               </label>
               <label>
@@ -264,6 +286,18 @@ export default function BookingFlow({
           </>
         )}
       </div>
+
+      <label className="hp" aria-hidden="true">
+        Leave this field empty
+        <input
+          type="text"
+          name="website"
+          value={website}
+          onChange={(e) => setWebsite(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </label>
 
       <div className="step-actions">
         {step > 1 && (
