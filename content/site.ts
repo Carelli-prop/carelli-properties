@@ -27,6 +27,7 @@ export type Apartment = {
   parking: string;
   outdoor: string;
   broadband: string;
+  energyEstimate: string;
   epc: string;
   epcNote?: string;
   councilTaxBand: string;
@@ -57,6 +58,8 @@ export const apartments: Apartment[] = [
     parking: "One free driveway space, plus street parking for visitors",
     outdoor: "Shared garden with a table and chairs. Mowed by the landlord",
     broadband: "Not included. You choose your own provider",
+    energyEstimate:
+      "The EPC estimates £301 a year for heating, hot water and lighting, at 2022 prices. Today's prices will differ",
     epc: "C",
     councilTaxBand: "Band A",
     bills: "Bills are not included. You pay your own council tax, energy and water",
@@ -91,6 +94,8 @@ export const apartments: Apartment[] = [
     parking: "One free driveway space, plus street parking for visitors",
     outdoor: "Shared garden with a table and chairs. Mowed by the landlord",
     broadband: "Not included. You choose your own provider",
+    energyEstimate:
+      "The EPC estimates £280 a year for heating, hot water and lighting, at 2022 prices. Today's prices will differ",
     epc: "C",
     epcNote: "Assessed before the new windows were fitted",
     councilTaxBand: "Band A",
