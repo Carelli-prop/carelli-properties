@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { Logo } from "@/components/ui";
@@ -31,8 +31,28 @@ export const metadata: Metadata = {
     "Two small furnished flats to rent on Oldbury Road, Worcester. Rented direct from your landlady. No agency fees. Book a viewing in under a minute.",
   openGraph: {
     siteName: site.name,
+    type: "website",
+    locale: "en_GB",
+    images: [
+      {
+        url: "/photos/hero-living.jpg",
+        width: 1200,
+        height: 900,
+        alt: "The living area, with duck egg panelling and an open door to the patio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Carelli Properties - Flats to rent in St John's, Worcester",
+    description:
+      "Two small furnished flats to rent on Oldbury Road, Worcester. Rented direct from your landlady. No agency fees.",
     images: [{ url: "/photos/hero-living.jpg", width: 1200, height: 900 }],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#fcfcfa",
 };
 
 export default function RootLayout({
