@@ -165,8 +165,11 @@ export default function BookingFlow({
   return (
     <form onSubmit={handleSubmit} className="booking-form">
       <div className="step-indicator">Step {step} of 4</div>
+      <div className="progress" aria-hidden="true">
+        <span style={{ width: `${step * 25}%` }} />
+      </div>
 
-      <div className="step-content">
+      <div className="step-content" key={step}>
         {step === 1 && (
           <>
             <h1>Choose an apartment</h1>
