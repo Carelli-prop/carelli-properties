@@ -23,7 +23,9 @@ export default function ContactPage() {
         <ul>
           <li>
             <strong>Email:</strong>{" "}
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={`mailto:${site.email}?subject=Viewing%20enquiry`}>
+              {site.email}
+            </a>
           </li>
           <li>
             <strong>WhatsApp:</strong>{" "}
@@ -34,6 +36,10 @@ export default function ContactPage() {
             >
               {site.whatsappDisplay}
             </a>
+          </li>
+          <li>
+            <strong>Call or text:</strong>{" "}
+            <a href={`tel:+${site.whatsappNumber}`}>{site.whatsappDisplay}</a>
           </li>
         </ul>
       </section>
