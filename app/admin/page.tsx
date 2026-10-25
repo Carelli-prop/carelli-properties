@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { db } from "@/lib/supabase";
 import { humanDate } from "@/lib/viewing";
+import AdminChrome from "@/components/AdminChrome";
 
 export const metadata: Metadata = { title: "Admin | Carelli Properties" };
 export const dynamic = "force-dynamic";
@@ -28,6 +29,7 @@ export default async function AdminPage() {
 
   return (
     <div className="admin-wrap">
+      <AdminChrome />
       <h1>Bookings</h1>
       <p className="meta">
         {rows.length} request{rows.length === 1 ? "" : "s"} in total, soonest
