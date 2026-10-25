@@ -59,3 +59,10 @@ Single professionals, mature students, or couples seeking an affordable, low-mai
 - **Clear space:** Keep empty space equal to half the mark's height on all sides.
 - **Never:** No gradients, no shadows, no 3D, no bevels, no stretching, no secondary icons anywhere else on the site.
 - **Production file:** A hand-coded SVG snapped exactly to these tokens. Raster renders are for approval only, never shipped.
+
+## Micro-interactions Policy
+- Press feedback: hover colour change and the one-pixel :active press-down only. No press animations anywhere.
+- Attention pulse: reserved for state changes, specifically a control becoming enabled inside the booking flow. One shot, 0.9s, soft ring in Carelli Blue at 35% alpha.
+- Rationale: a calm brand whispers. Signals fire on change, never on repetition.
+
+
