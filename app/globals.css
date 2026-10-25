@@ -947,3 +947,36 @@ a:hover {
 }
 
 
+.gallery-block {
+  margin-block: var(--s3);
+}
+
+.gallery-dots {
+  display: flex;
+  gap: var(--s2);
+  justify-content: center;
+  margin-top: var(--s3);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--hairline);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.dot.is-active {
+  background: var(--blue);
+  transform: scale(1.25);
+}
+
+.gallery-hint {
+  text-align: center;
+  margin-top: var(--s2);
+}
+
+
