@@ -3,6 +3,7 @@ import BookingFlow from "@/components/BookingFlow";
 
 export const metadata: Metadata = {
   title: "Book a viewing",
+  alternates: { canonical: "/book-a-viewing" },
 };
 
 export default async function BookViewingPage({
