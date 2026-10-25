@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
-import ButtonFeel from "@/components/ButtonFeel";
 import { Logo } from "@/components/ui";
 import StickyCta from "@/components/StickyCta";
 import { nav, site } from "@/content/site";
@@ -44,7 +43,6 @@ export default function RootLayout({
   return (
     <html lang="en-GB" className={`${display.variable} ${body.variable}`}>
       <body>
-        <ButtonFeel />
         <a className="skip-link" href="#main">
           Skip to content
         </a>
