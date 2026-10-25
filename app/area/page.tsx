@@ -22,6 +22,10 @@ export default function AreaPage() {
           high street are a short trip away.
         </p>
         <p>
+          The University of Worcester's St John's campus is on Oldbury Road
+          itself. For a student or a member of staff, the commute is a walk.
+        </p>
+        <p>
           We keep this guide short on purpose. We would rather show you the
           area in person than list claims we cannot keep.
         </p>
