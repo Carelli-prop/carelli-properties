@@ -871,3 +871,19 @@ main.wrap > * + * {
     transition: none;
   }
 }
+
+
+body.is-admin .site-nav,
+body.is-admin .site-menu,
+body.is-admin .site-header .btn,
+body.is-admin .sticky-cta {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  body.is-admin {
+    padding-bottom: 0;
+  }
+}
+
+
