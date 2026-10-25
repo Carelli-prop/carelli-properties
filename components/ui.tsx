@@ -107,6 +107,30 @@ export function FactsTable({ apartment }: { apartment: Apartment }) {
           <td>{apartment.furnished}</td>
         </tr>
         <tr>
+          <th scope="row">Floor and entrance</th>
+          <td>{apartment.floor}</td>
+        </tr>
+        <tr>
+          <th scope="row">Kitchen</th>
+          <td>{apartment.kitchen}</td>
+        </tr>
+        <tr>
+          <th scope="row">Laundry</th>
+          <td>{apartment.laundry}</td>
+        </tr>
+        <tr>
+          <th scope="row">Parking</th>
+          <td>{apartment.parking}</td>
+        </tr>
+        <tr>
+          <th scope="row">Outdoor space</th>
+          <td>{apartment.outdoor}</td>
+        </tr>
+        <tr>
+          <th scope="row">Broadband</th>
+          <td>{apartment.broadband}</td>
+        </tr>
+        <tr>
           <th scope="row">EPC rating</th>
           <td>
             {apartment.epc}
