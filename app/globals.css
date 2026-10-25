@@ -985,3 +985,15 @@ a:hover {
 }
 
 
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.step-summary {
+  margin-bottom: var(--s3);
+}
+
