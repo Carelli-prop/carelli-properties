@@ -27,6 +27,7 @@ export type Apartment = {
   bills: string;
   summary: string;
   sleeps: string;
+  heroAlt: string;
   photos: {
     hero: string;
     gallery: { src: string; alt: string }[];
@@ -50,6 +51,7 @@ export const apartments: Apartment[] = [
     summary:
       "A compact furnished flat for one person, or two who like each other very much. Quiet, freshly decorated, and easy to run.",
     sleeps: "Comfortable for one. Workable for two. The bed space suits a small double.",
+    heroAlt: "The living area, with duck egg panelling and an open door to the patio",
     photos: {
       hero: "/photos/hero-living.jpg",
       gallery: [
@@ -78,6 +80,7 @@ export const apartments: Apartment[] = [
     summary:
       "A compact furnished flat with its own front door and a brick-built quiet of its own. Freshly decorated, with new windows.",
     sleeps: "Comfortable for one. Workable for two. The bed space suits a small double.",
+    heroAlt: "The front door of 88B Oldbury Road, a red brick home with a white door",
     photos: {
       hero: "/photos/exterior-88b.jpg",
       gallery: [
