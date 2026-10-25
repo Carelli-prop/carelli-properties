@@ -124,3 +124,12 @@ Running record of decisions for Carelli Properties.
 - [ ] Carole has reviewed the live preview and approved.
 
 
+
+## Pass 4 Part 3
+- Apartments page: hero merged into the gallery scroller as slide one. Dots plus a swipe hint make the scroller self-evident.
+- Canonical set on /book-a-viewing so ?apartment= variants do not split SEO.
+- Lighthouse mobile gates passed: home 99/100/100/100, booking 98/100/96/100.
+- Pricing research opened. Worcester average private rent was £984 pcm in September 2026, up 6.1% year on year (ONS).
+- St John's one-bed listings observed around £725 to £895 pcm.
+- University of Worcester St John's campus sits on Oldbury Road itself, which makes student demand walkable and real.
+
