@@ -14,6 +14,17 @@ export default function GoodToKnowPage() {
         clauses.
       </p>
 
+            <details className="disclosure">
+        <summary>Your details</summary>
+        <div className="disclosure-body">
+          <p>
+            We only use your name and contact details to arrange and confirm
+            viewings. We never sell them or pass them to anyone else. They are
+            stored securely and deleted when no longer needed.
+          </p>
+        </div>
+      </details>
+      
       <details className="disclosure">
         <summary>House Rules</summary>
         <div className="disclosure-body">
