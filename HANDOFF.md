@@ -147,3 +147,12 @@ Running record of decisions for Carelli Properties.
 - robots.txt now a static file in public, after PSI fetch timeouts on the generated route.
 - Gallery slides uniform 3:4 frame with centre crop, fixing the landscape-portrait height mismatch.
 
+
+## Pass 4 close
+- PageSpeed final: home mobile 99/100/100/100 and desktop 100 on all four. Booking mobile 99/100/100/100 and desktop 100 on all four. Gate passed on both form factors.
+- Static robots.txt resolved the fetch-timeout SEO failure.
+- Preview noindex guard added: X-Robots-Tag noindex on any vercel.app hostname, so placeholder rents and mockup photos never reach search indexes. Drops automatically at cutover.
+- Rents £825 and £750 pending Carole's consent. Deposits follow the five-week cap automatically.
+- EPC certificate numbers on record: 88A 9351-3014-1207-2192-4200, valid to 15 March 2032. 88B 2586-3017-3206-1072-8200, valid to 28 June 2032. The assessor made no recommendations for either property.
+- Cutover defined: domain purchase, DNS to Vercel, site URL and sitemap update, Resend domain verification and sending address, per-flat photography swap, final facts, test data purge, Carole sign-off, flip.
+
