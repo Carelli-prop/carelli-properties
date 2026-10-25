@@ -16,6 +16,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Bad request" }, { status: 400 });
   }
 
+    if (typeof body.website === "string" && body.website.trim() !== "") {
+    return NextResponse.json({ ok: true, emailStatus: "skipped" });
+  }
   const apartment = body.apartment === "88a" || body.apartment === "88b"
     ? body.apartment
     : null;
