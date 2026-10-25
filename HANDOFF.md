@@ -166,3 +166,12 @@ Running record of decisions for Carelli Properties.
 - Area page: University of Worcester St John's campus on Oldbury Road, verified from the campus map.
 - Contact: tel link and prefilled email subject.
 
+
+## Brochure review and EPC batch, trimmed
+- Sale brochure used as a corroborating witness only. Band A for both flats now confirmed by a second document. VOA check remains the final word at cutover.
+- En-suite shower room off the bedroom confirmed for both flats and added to the facts table.
+- Allocated parking per flat and communal rear garden corroborated.
+- Brochure claims rejected where they conflict with measured truth: generous double bedroom, 28 sq m for 88B, washing machine versus washer-dryer.
+- Brochure images not used. Copyright sits with the agent or photographer, and staged sale photos would misrepresent the let. Brochure kept as a shot-list reference for photo day.
+- EPC batch trimmed to what a tenant actually asks: will it be cold, what will it cost, is it legit. Carbon tonnes, numeric score, heating control config and the separate legal disclosure all cut.
+
