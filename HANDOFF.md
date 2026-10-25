@@ -105,3 +105,22 @@ Running record of decisions for Carelli Properties.
 - /admin now hides the public nav, menu, header CTA and sticky booking bar. Logo remains as the exit route. Admin is a tool, not a shop window.
 
 
+
+## Pass 4 Part 2
+- Viewing windows confirmed: Mondays and Tuesdays, 08:00 to 21:00, 30-minute slots, minimum one day ahead.
+- Micro-interactions shipped: step progress hairline, 150ms step fade, focus-within labels, gallery hover scale on desktop only, link underline thickening.
+- Social cards added: twitter summary_large_image, OG alt text, mobile theme colour.
+- Privacy disclosure added to Good To Know.
+
+## Pre-cutover checklist
+- [ ] Real per-flat photography uploaded and mapped to the correct flats.
+- [ ] VOA council tax bands verified for 88A and 88B.
+- [ ] Final rent and deposit figures set in content/site.ts.
+- [ ] Final available-from dates set.
+- [ ] Resend account with a verified domain, RESEND_FROM set to a real address.
+- [ ] Domain purchased, DNS pointed at Vercel, NEXT_PUBLIC_SITE_URL updated.
+- [ ] Test bookings deleted from Supabase.
+- [ ] Lighthouse mobile 95 or above on all four categories, or fixes applied.
+- [ ] Carole has reviewed the live preview and approved.
+
+
