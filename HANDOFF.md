@@ -100,3 +100,8 @@ Running record of decisions for Carelli Properties.
 
 
 
+
+## Admin chrome
+- /admin now hides the public nav, menu, header CTA and sticky booking bar. Logo remains as the exit route. Admin is a tool, not a shop window.
+
+
