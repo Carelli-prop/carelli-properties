@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { apartments } from "@/content/site";
-import { Photo, FactsTable, BookCta } from "@/components/ui";
+import { FactsTable, BookCta } from "@/components/ui";
+import Gallery from "@/components/Gallery";
 
 export const metadata: Metadata = {
   title: "The Apartments",
@@ -17,7 +18,7 @@ export default function ApartmentsPage() {
         for one person, or two who like each other very much.
       </p>
 
-      {apartments.map((flat, index) => (
+      {apartments.map((flat) => (
         <section
           key={flat.id}
           id={flat.id}
@@ -25,34 +26,18 @@ export default function ApartmentsPage() {
           aria-labelledby={`heading-${flat.id}`}
         >
           <h2 id={`heading-${flat.id}`}>{flat.label}</h2>
-          <Photo
-            src={flat.photos.hero}
-            alt={`The main living space for ${flat.label}`}
-            width={1000}
-            height={750}
-            priority={index === 0}
+          <Gallery
+            label={flat.label}
+            photos={[
+              { src: flat.photos.hero, alt: flat.heroAlt },
+              ...flat.photos.gallery,
+            ]}
           />
           <p className="meta">{flat.summary}</p>
           <p>
             <strong>Who fits here:</strong> {flat.sleeps}
           </p>
           <FactsTable apartment={flat} />
-          <div
-            className="gallery"
-            role="region"
-            aria-label={`Photos of ${flat.label}. Scroll sideways.`}
-            tabIndex={0}
-          >
-            {flat.photos.gallery.map((img) => (
-              <Photo
-                key={img.src}
-                src={img.src}
-                alt={img.alt}
-                width={600}
-                height={450}
-              />
-            ))}
-          </div>
           <div className="cta-wrap">
             <BookCta apartment={flat} big />
           </div>
