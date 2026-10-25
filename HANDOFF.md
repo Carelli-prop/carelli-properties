@@ -133,3 +133,17 @@ Running record of decisions for Carelli Properties.
 - St John's one-bed listings observed around £725 to £895 pcm.
 - University of Worcester St John's campus sits on Oldbury Road itself, which makes student demand walkable and real.
 
+
+## Pricing and verified facts
+- EPC verified: 88A ground floor 29 sqm, C, valid to 15 Mar 2032. 88B top floor 31 sqm, C, valid to 28 Jun 2032. Both gas heated, double glazed, legally lettable.
+- Note: 88B measures 2 sqm larger than 88A despite feeling crampier. Layout, not area. Square metres never published on site.
+- Separate bedroom and private bathroom in both: compact one-beds, not studios.
+- Recommended rents, bills excluded: 88A £825 pcm, 88B £750 pcm. Deposits at five-week cap: £951.92 and £865.38. Fallback rule: no application within three weeks of viewings, drop £25, one step, never twice in a week.
+- Furnishing corrected to part-furnished (sofa, table, small-double bed).
+- New fact rows: floor and entrance, kitchen, laundry, parking, outdoor space, broadband.
+- Parking: one free driveway space each. Washer-dryer in each flat. Shared garden, landlord mows.
+- Broadband not included for now.
+- Renters' Rights Act 2025: fixed terms and section 21 ending during 2026. No twelve-month minimum can be required. Risk managed by guarantor and references, applied identically to all applicants. No student premium, ever.
+- robots.txt now a static file in public, after PSI fetch timeouts on the generated route.
+- Gallery slides uniform 3:4 frame with centre crop, fixing the landscape-portrait height mismatch.
+
