@@ -9,7 +9,7 @@ import { db } from "@/lib/supabase";
 import { sendBookingEmails, type BookingRecord } from "@/lib/email";
 
 export async function POST(req: Request) {
-  let body: BookingRecord;
+  let body: BookingRecord & { website?: string };
   try {
     body = await req.json();
   } catch {
