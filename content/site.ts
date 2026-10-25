@@ -28,6 +28,11 @@ export type Apartment = {
   outdoor: string;
   broadband: string;
   energyEstimate: string;
+  epcCertificate: string;
+  epcValidUntil: string;
+  epcRegisterUrl: string;
+  warmth: string;
+  bathroom: string;
   epc: string;
   epcNote?: string;
   councilTaxBand: string;
@@ -60,6 +65,13 @@ export const apartments: Apartment[] = [
     broadband: "Not included. You choose your own provider",
     energyEstimate:
       "The EPC estimates £301 a year for heating, hot water and lighting, at 2022 prices. Today's prices will differ",
+    epcCertificate: "9351-3014-1207-2192-4200",
+    epcValidUntil: "15 March 2032",
+    epcRegisterUrl:
+      "https://find-energy-certificate.service.gov.uk/energy-certificate/9351-3014-1207-2192-4200",
+    warmth:
+      "Double glazed throughout, gas boiler heating, insulated walls and roof. All rated good on the EPC",
+    bathroom: "En-suite shower room off the bedroom, with a walk-in shower",
     epc: "C",
     councilTaxBand: "Band A",
     bills: "Bills are not included. You pay your own council tax, energy and water",
@@ -96,6 +108,13 @@ export const apartments: Apartment[] = [
     broadband: "Not included. You choose your own provider",
     energyEstimate:
       "The EPC estimates £280 a year for heating, hot water and lighting, at 2022 prices. Today's prices will differ",
+    epcCertificate: "2586-3017-3206-1072-8200",
+    epcValidUntil: "28 June 2032",
+    epcRegisterUrl:
+      "https://find-energy-certificate.service.gov.uk/energy-certificate/2586-3017-3206-1072-8200",
+    warmth:
+      "Double glazed throughout, gas boiler heating, insulated walls and roof. All rated good on the EPC",
+    bathroom: "En-suite shower room off the bedroom, with a walk-in shower",
     epc: "C",
     epcNote: "Assessed before the new windows were fitted",
     councilTaxBand: "Band A",
