@@ -131,6 +131,10 @@ export function FactsTable({ apartment }: { apartment: Apartment }) {
           <td>{apartment.broadband}</td>
         </tr>
         <tr>
+          <th scope="row">Energy estimate</th>
+          <td>{apartment.energyEstimate}</td>
+        </tr>
+        <tr>
           <th scope="row">EPC rating</th>
           <td>
             {apartment.epc}
