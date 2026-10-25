@@ -156,3 +156,13 @@ Running record of decisions for Carelli Properties.
 - EPC certificate numbers on record: 88A 9351-3014-1207-2192-4200, valid to 15 March 2032. 88B 2586-3017-3206-1072-8200, valid to 28 June 2032. The assessor made no recommendations for either property.
 - Cutover defined: domain purchase, DNS to Vercel, site URL and sitemap update, Resend domain verification and sending address, per-flat photography swap, final facts, test data purge, Carole sign-off, flip.
 
+
+## Pre-cutover trust and ease batch
+- Autocomplete attributes on booking form fields.
+- Running choice summary under the step indicator.
+- Honeypot spam field on booking form, fake-success response for bots.
+- Energy estimate row per flat from verified EPC certificates, with 2022-prices caveat.
+- Good To Know: tenancy length under Renters' Rights Act, neutral references and guarantors, no-cookies statement.
+- Area page: University of Worcester St John's campus on Oldbury Road, verified from the campus map.
+- Contact: tel link and prefilled email subject.
+
