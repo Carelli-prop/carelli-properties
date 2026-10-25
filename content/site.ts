@@ -21,6 +21,12 @@ export type Apartment = {
   depositBasis: string;
   availableFrom: string;
   furnished: string;
+  floor: string;
+  kitchen: string;
+  laundry: string;
+  parking: string;
+  outdoor: string;
+  broadband: string;
   epc: string;
   epcNote?: string;
   councilTaxBand: string;
@@ -40,16 +46,22 @@ export const apartments: Apartment[] = [
     id: "88a",
     label: "Flat 88A",
     path: "/apartments/88a",
-    rentPcm: 600,
-    deposit: "692.31",
+    rentPcm: 825,
+    deposit: "951.92",
     depositBasis: "Five weeks' rent, the legal maximum for this rent level. Held in the Deposit Protection Service.",
     availableFrom: "1 December 2026",
-    furnished: "Furnished",
+    furnished: "Part-furnished: sofa, table and small-double bed",
+    floor: "Ground floor, with its own front door and key",
+    kitchen: "Oven, hob and mini fridge",
+    laundry: "Washer-dryer inside the flat",
+    parking: "One free driveway space, plus street parking for visitors",
+    outdoor: "Shared garden with a table and chairs. Mowed by the landlord",
+    broadband: "Not included. You choose your own provider",
     epc: "C",
     councilTaxBand: "Band A",
-    bills: "Bills are not included. You pay your own council tax, energy and water.",
+    bills: "Bills are not included. You pay your own council tax, energy and water",
     summary:
-      "A compact furnished flat for one person, or two who like each other very much. Quiet, freshly decorated, and easy to run.",
+      "A compact ground-floor one-bed flat with its own front door, a parking space and a washer-dryer. Freshly decorated and easy to run.",
     sleeps: "Comfortable for one. Workable for two. The bed space suits a small double.",
     heroAlt: "The living area, with duck egg panelling and an open door to the patio",
     photos: {
@@ -68,17 +80,23 @@ export const apartments: Apartment[] = [
     id: "88b",
     label: "Flat 88B",
     path: "/apartments/88b",
-    rentPcm: 600,
-    deposit: "692.31",
+    rentPcm: 750,
+    deposit: "865.38",
     depositBasis: "Five weeks' rent, the legal maximum for this rent level. Held in the Deposit Protection Service.",
     availableFrom: "1 December 2026",
-    furnished: "Furnished",
+    furnished: "Part-furnished: sofa, table and small-double bed",
+    floor: "Top floor, with its own front door and key",
+    kitchen: "Oven, hob and fridge with freezer compartment",
+    laundry: "Washer-dryer inside the flat",
+    parking: "One free driveway space, plus street parking for visitors",
+    outdoor: "Shared garden with a table and chairs. Mowed by the landlord",
+    broadband: "Not included. You choose your own provider",
     epc: "C",
-    epcNote: "Assessed before the new windows were fitted.",
+    epcNote: "Assessed before the new windows were fitted",
     councilTaxBand: "Band A",
-    bills: "Bills are not included. You pay your own council tax, energy and water.",
+    bills: "Bills are not included. You pay your own council tax, energy and water",
     summary:
-      "A compact furnished flat with its own front door and a brick-built quiet of its own. Freshly decorated, with new windows.",
+      "A compact top-floor one-bed flat with its own front door, a parking space and a washer-dryer. Freshly decorated, with new windows.",
     sleeps: "Comfortable for one. Workable for two. The bed space suits a small double.",
     heroAlt: "The front door of 88B Oldbury Road, a red brick home with a white door",
     photos: {
