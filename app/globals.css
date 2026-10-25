@@ -887,3 +887,63 @@ body.is-admin .sticky-cta {
 }
 
 
+.progress {
+  height: 2px;
+  background: var(--hairline);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: var(--s4);
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+  transition: width 0.3s ease;
+}
+
+.step-content {
+  animation: step-in 0.15s ease;
+}
+
+@keyframes step-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.form-fields label:focus-within {
+  color: var(--blue);
+}
+
+.form-fields input:focus,
+.form-fields textarea:focus {
+  border-color: var(--blue);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+@media (hover: hover) and (min-width: 768px) {
+  .gallery .photo img {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  .gallery .photo:hover img {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery .photo:hover img {
+    transform: none;
+  }
+}
+
+
