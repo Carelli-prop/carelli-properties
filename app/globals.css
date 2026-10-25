@@ -411,6 +411,11 @@ a[href^="https://wa.me"] {
   flex: 0 0 85%;
   scroll-snap-align: start;
   margin-bottom: 0;
+  aspect-ratio: 3 / 4;
+}
+
+.gallery .photo img {
+  height: 100%;
 }
 
 @media (min-width: 768px) {
