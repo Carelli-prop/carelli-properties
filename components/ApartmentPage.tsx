@@ -1,5 +1,6 @@
 import { apartments } from "@/content/site";
 import { FactsTable, BookCta } from "@/components/ui";
+import ApartmentStickyCta from "./ApartmentStickyCta";
 import Gallery from "@/components/Gallery";
 import { notFound } from "next/navigation";
 
@@ -28,6 +29,7 @@ export default function ApartmentPage({ id }: { id: string }) {
       <div className="cta-wrap cta-wrap-flat">
         <BookCta apartment={flat} big label={`Book a viewing of ${flat.label}`} />
       </div>
+      <ApartmentStickyCta id={flat.id} label={flat.label} />
     </>
   );
 }
