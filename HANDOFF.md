@@ -185,3 +185,12 @@ Running record of decisions for Carelli Properties.
 - Deferred by decision: self-serve reschedule tokens and scheduled automatic reminders. Revisit after cutover if volume earns them.
 
 
+
+## Owner decisions, pre-cutover
+- Rents held at £825 (88A) and £750 (88B) for the mockup. Owners judge them slightly high and will run their own comp research before cutover. History recorded: first recommendation 825/750, corrected band 795/750 after comp verification errors, owners chose to hold and research later.
+- Booking flow skips the flat-choice step when arriving from a flat-specific Book button. Back still returns to the choice. Generic CTAs still start at the choice.
+- Phone is now required on the booking form, enforced in the browser and on the server.
+- /admin board verified working: statuses, over-24h flag, CSV, WhatsApp and mailto. Email buttons report skipped until RESEND_API_KEY exists.
+- Resend key procedure: create with Sending access at resend.com API Keys, paste only into Vercel environment variables, never into chat.
+
+
