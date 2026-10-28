@@ -175,3 +175,13 @@ Running record of decisions for Carelli Properties.
 - Brochure images not used. Copyright sits with the agent or photographer, and staged sale photos would misrepresent the let. Brochure kept as a shot-list reference for photo day.
 - EPC batch trimmed to what a tenant actually asks: will it be cold, what will it cost, is it legit. Carbon tonnes, numeric score, heating control config and the separate legal disclosure all cut.
 
+
+## Admin cockpit and booker service loop
+- viewings table gains status, ref and reminded_at columns.
+- /admin becomes a working board: Needs action, Upcoming confirmed, Past and cancelled, with one-click confirm, cancel, reminder, completed-plus-followup, reopen, WhatsApp, mailto and CSV export.
+- Requests older than 24 hours flag red to protect the one-working-day promise.
+- Booker loop: reference on screen and in every email, immediate acknowledgement, confirmation with exact door and parking, 24-hour reminder, post-viewing next steps, and a browser-generated calendar file.
+- Entrance facts from the verified brochure: 88A side door, 88B rear door.
+- Deferred by decision: self-serve reschedule tokens and scheduled automatic reminders. Revisit after cutover if volume earns them.
+
+
