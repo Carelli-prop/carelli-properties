@@ -1067,8 +1067,8 @@ a:hover {
 }
 
 @media (max-width: 767px) {
-  .cta-wrap-flat .btn-primary {
-    display: inline-flex;
+  .cta-wrap-flat {
+    display: none;
   }
 }
 
