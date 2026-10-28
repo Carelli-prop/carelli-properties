@@ -75,6 +75,8 @@ export async function POST(req: Request) {
     );
   }
 
+  const ref = `CP-${Date.now().toString(36).slice(-6).toUpperCase()}`;
+
   const { error: insertError } = await db().from("viewings").insert({
     apartment,
     date,
@@ -83,6 +85,7 @@ export async function POST(req: Request) {
     email,
     phone: body.phone?.trim() || null,
     note: body.note?.trim() || null,
+    ref,
   });
 
   if (insertError) {
@@ -109,7 +112,8 @@ export async function POST(req: Request) {
     email,
     phone: body.phone,
     note: body.note,
+    ref,
   });
 
-  return NextResponse.json({ ok: true, emailStatus });
+  return NextResponse.json({ ok: true, emailStatus, ref });
 }
