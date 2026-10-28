@@ -42,9 +42,11 @@ export async function sendBookingEmails(
   const phoneLine = b.phone ? `Phone: ${b.phone}` : "Phone: not given";
   const noteLine = b.note ? `Note: ${b.note}` : "Note: none";
 
+  const label = b.apartment === "88a" ? "Flat 88A" : "Flat 88B";
+
   const mum = await send(
     site.email,
-    `Viewing request: ${b.apartment}, ${when}`,
+    `Viewing request: ${label}, ${when}`,
     `<p>New viewing request.</p><p>Flat: ${b.apartment}<br>Date: ${b.date}<br>Time: ${b.time}<br>Ref: ${b.ref ?? "none"}</p><p>Name: ${b.name}<br>Email: ${b.email}<br>${phoneLine}<br>${noteLine}</p><p>Open /admin to confirm, remind or follow up.</p>`
   );
 
