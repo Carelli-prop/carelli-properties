@@ -33,6 +33,7 @@ export type Apartment = {
   epcRegisterUrl: string;
   warmth: string;
   bathroom: string;
+  entrance: string;
   epc: string;
   epcNote?: string;
   councilTaxBand: string;
@@ -72,6 +73,7 @@ export const apartments: Apartment[] = [
     warmth:
       "Double glazed throughout, gas boiler heating, insulated walls and roof. All rated good on the EPC",
     bathroom: "En-suite shower room off the bedroom, with a walk-in shower",
+    entrance: "The entrance is the private door at the side of the building",
     epc: "C",
     councilTaxBand: "Band A",
     bills: "Bills are not included. You pay your own council tax, energy and water",
@@ -115,6 +117,7 @@ export const apartments: Apartment[] = [
     warmth:
       "Double glazed throughout, gas boiler heating, insulated walls and roof. All rated good on the EPC",
     bathroom: "En-suite shower room off the bedroom, with a walk-in shower",
+    entrance: "The entrance is the private door at the rear of the building",
     epc: "C",
     epcNote: "Assessed before the new windows were fitted",
     councilTaxBand: "Band A",
