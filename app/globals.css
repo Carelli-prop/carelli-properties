@@ -997,3 +997,44 @@ a:hover {
   margin-bottom: var(--s3);
 }
 
+.btn-small {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+}
+
+.admin-card {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: var(--s3);
+  margin-bottom: var(--s3);
+}
+
+.admin-card h3 {
+  margin: 0 0 var(--s1);
+}
+
+.admin-meta {
+  color: var(--meta);
+  font-size: 0.875rem;
+}
+
+.admin-flag {
+  color: #c92a2a;
+  font-weight: 600;
+}
+
+.admin-row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: var(--s2);
+}
+
+.admin-message {
+  margin-block: var(--s3);
+  font-weight: 600;
+  color: var(--blue);
+}
+
+
