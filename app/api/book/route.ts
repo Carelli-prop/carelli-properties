@@ -26,8 +26,16 @@ export async function POST(req: Request) {
   const time = typeof body.time === "string" ? body.time : null;
   const name = typeof body.name === "string" ? body.name.trim() : "";
   const email = typeof body.email === "string" ? body.email.trim() : "";
+  const phone = typeof body.phone === "string" ? body.phone.trim() : "";
 
-  if (!apartment || !date || !time || !name || !/^\S+@\S+\.\S+$/.test(email)) {
+  if (
+    !apartment ||
+    !date ||
+    !time ||
+    !name ||
+    !phone ||
+    !/^\S+@\S+\.\S+$/.test(email)
+  ) {
     return NextResponse.json(
       { error: "Please complete every required field" },
       { status: 400 }
@@ -83,7 +91,7 @@ export async function POST(req: Request) {
     time,
     name,
     email,
-    phone: body.phone?.trim() || null,
+    phone,
     note: body.note?.trim() || null,
     ref,
   });
