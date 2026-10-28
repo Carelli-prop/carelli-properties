@@ -22,6 +22,7 @@ export default function BookingFlow({
   const [phone, setPhone] = useState("");
   const [note, setNote] = useState("");
   const [website, setWebsite] = useState("");
+  const [ref, setRef] = useState("");
 
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -101,6 +102,7 @@ export default function BookingFlow({
       const data = await res.json();
 
       if (res.ok) {
+        setRef(data.ref || "");
         setSuccess(true);
       } else if (data.error === "slot-taken" && data.next) {
         setError(
@@ -130,6 +132,31 @@ export default function BookingFlow({
     const waText = encodeURIComponent(
       `Hi Matt, I just booked a viewing for ${selectedFlat.label} on ${selectedDate.label} at ${time}. Looking forward to it!`
     );
+
+    const [hh, mm] = time.split(":").map(Number);
+    const endMinutes = hh * 60 + mm + 30;
+    const end = `${String(Math.floor(endMinutes / 60)).padStart(2, "0")}:${String(
+      endMinutes % 60
+    ).padStart(2, "0")}`;
+    const stamp = date.replace(/-/g, "");
+    const icsHref =
+      "data:text/calendar;charset=utf-8," +
+      encodeURIComponent(
+        [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Carelli Properties//Viewing//EN",
+          "BEGIN:VEVENT",
+          `UID:${ref || "viewing"}@carelli-properties`,
+          `DTSTART:${stamp}T${time.replace(":", "")}00`,
+          `DTEND:${stamp}T${end.replace(":", "")}00`,
+          `SUMMARY:Viewing of ${selectedFlat.label}, Carelli Properties`,
+          "LOCATION:Oldbury Road, Worcester, WR2 6AR",
+          `DESCRIPTION:Ref ${ref || ""}. Matt will meet you at the door.`,
+          "END:VEVENT",
+          "END:VCALENDAR",
+        ].join("\r\n")
+      );
     return (
       <div className="card success-card">
         <h1>Viewing requested</h1>
@@ -138,6 +165,11 @@ export default function BookingFlow({
         </p>
 
         <div className="summary-grid">
+          {ref && (
+            <div>
+              <strong>Reference:</strong> {ref}
+            </div>
+          )}
           <div>
             <strong>When:</strong> {selectedDate.label} at {time}
           </div>
@@ -169,6 +201,13 @@ export default function BookingFlow({
             rel="noopener noreferrer"
           >
             Message Matt on WhatsApp
+          </a>
+          <a
+            href={icsHref}
+            download={`viewing-${ref || "slot"}.ics`}
+            className="btn-text"
+          >
+            Add the viewing to your calendar
           </a>
           <a href="/" className="btn-text">
             Back to home
