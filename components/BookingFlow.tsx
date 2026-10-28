@@ -11,8 +11,12 @@ export default function BookingFlow({
 }: {
   initialApartment?: string;
 }) {
-  const [step, setStep] = useState(1);
-  const [apartment, setApartment] = useState(initialApartment || "");
+  const validInitial =
+    initialApartment === "88a" || initialApartment === "88b"
+      ? initialApartment
+      : "";
+  const [step, setStep] = useState(validInitial ? 2 : 1);
+  const [apartment, setApartment] = useState(validInitial);
   const [dates, setDates] = useState<BookableDate[]>([]);
   const [date, setDate] = useState("");
   const [slots, setSlots] = useState<string[]>([]);
@@ -304,8 +308,9 @@ export default function BookingFlow({
                 />
               </label>
               <label>
-                Phone (optional)
+                Phone
                 <input
+                  required
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
