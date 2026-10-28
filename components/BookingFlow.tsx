@@ -11,10 +11,8 @@ export default function BookingFlow({
 }: {
   initialApartment?: string;
 }) {
-  const validInitial =
-    initialApartment === "88a" || initialApartment === "88b"
-      ? initialApartment
-      : "";
+  const lower = initialApartment?.toLowerCase() ?? "";
+  const validInitial = lower === "88a" || lower === "88b" ? lower : "";
   const [step, setStep] = useState(validInitial ? 2 : 1);
   const [apartment, setApartment] = useState(validInitial);
   const [dates, setDates] = useState<BookableDate[]>([]);
