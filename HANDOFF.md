@@ -200,3 +200,9 @@ Running record of decisions for Carelli Properties.
 - Owner decision: a reader committed to one flat should never re-choose it. The skip-step and the per-flat mobile CTA enforce that momentum.
 
 
+
+## Step 1 skip and sticky bar fix
+- Sticky booking bar now hides entirely on /apartments/88a and /apartments/88b. This forces mobile users to use the inline CTA, which carries the apartment ID and successfully skips Step 1.
+- URL parameter check for initialApartment made case-insensitive to prevent "88A" vs "88a" mismatches.
+- Resend email delivery clarified: free tier is sufficient. Real-world delivery unlocks upon free domain verification at cutover. Gmail SMTP rejected due to automated-sending blocks.
+
