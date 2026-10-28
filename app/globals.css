@@ -1038,3 +1038,38 @@ a:hover {
 }
 
 
+.flat-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s4);
+  margin-block: var(--s4);
+}
+
+@media (min-width: 768px) {
+  .flat-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.flat-card {
+  display: block;
+  text-decoration: none;
+  color: var(--body);
+}
+
+.flat-card h2 {
+  margin-top: var(--s3);
+}
+
+.flat-card .btn {
+  margin-top: var(--s3);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .cta-wrap-flat .btn-primary {
+    display: inline-flex;
+  }
+}
+
+
