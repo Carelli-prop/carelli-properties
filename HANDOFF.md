@@ -194,3 +194,9 @@ Running record of decisions for Carelli Properties.
 - Resend key procedure: create with Sending access at resend.com API Keys, paste only into Vercel environment variables, never into chat.
 
 
+
+## Apartments split into two pages
+- /apartments becomes an index with two cards. /apartments/88a and /apartments/88b are their own pages with their own metadata.
+- Owner decision: a reader committed to one flat should never re-choose it. The skip-step and the per-flat mobile CTA enforce that momentum.
+
+
