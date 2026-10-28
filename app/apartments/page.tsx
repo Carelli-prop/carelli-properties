@@ -1,48 +1,38 @@
 import type { Metadata } from "next";
-import { apartments } from "@/content/site";
-import { FactsTable, BookCta } from "@/components/ui";
-import Gallery from "@/components/Gallery";
+import { apartments, money } from "@/content/site";
+import { Photo } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "The Apartments",
   description:
-    "Facts, photos and pricing for Flat 88A and Flat 88B on Oldbury Road, Worcester.",
+    "Two small furnished flats to rent on Oldbury Road, Worcester. Choose a flat to see its photos, facts and price.",
 };
 
-export default function ApartmentsPage() {
+export default function ApartmentsIndex() {
   return (
     <>
       <h1>The Apartments</h1>
       <p className="lead">
         Two small, freshly decorated furnished flats on Oldbury Road. Perfect
-        for one person, or two who like each other very much.
+        for one person, or two who like each other very much. Choose the one
+        you want to see.
       </p>
-
-      {apartments.map((flat) => (
-        <section
-          key={flat.id}
-          id={flat.id}
-          className="flat-section"
-          aria-labelledby={`heading-${flat.id}`}
-        >
-          <h2 id={`heading-${flat.id}`}>{flat.label}</h2>
-          <Gallery
-            label={flat.label}
-            photos={[
-              { src: flat.photos.hero, alt: flat.heroAlt },
-              ...flat.photos.gallery,
-            ]}
-          />
-          <p className="meta">{flat.summary}</p>
-          <p>
-            <strong>Who fits here:</strong> {flat.sleeps}
-          </p>
-          <FactsTable apartment={flat} />
-          <div className="cta-wrap">
-            <BookCta apartment={flat} big />
-          </div>
-        </section>
-      ))}
+      <div className="flat-cards">
+        {apartments.map((flat) => (
+          <a key={flat.id} className="card flat-card" href={flat.path}>
+            <Photo
+              src={flat.photos.hero}
+              alt={flat.heroAlt}
+              width={600}
+              height={450}
+            />
+            <h2>{flat.label}</h2>
+            <p className="meta">{money(flat.rentPcm)}</p>
+            <p>{flat.summary}</p>
+            <span className="btn btn-secondary">See {flat.label}</span>
+          </a>
+        ))}
+      </div>
     </>
   );
 }
