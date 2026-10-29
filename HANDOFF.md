@@ -206,3 +206,10 @@ Running record of decisions for Carelli Properties.
 - URL parameter check for initialApartment made case-insensitive to prevent "88A" vs "88a" mismatches.
 - Resend email delivery clarified: free tier is sufficient. Real-world delivery unlocks upon free domain verification at cutover. Gmail SMTP rejected due to automated-sending blocks.
 
+
+## Booking navigation performance
+- Booking CTAs converted from plain anchors to next/link for client-side handover and prefetch.
+- Bookable dates now server-rendered into the form as props, removing the /api/dates round trip. One fetch remains (taken slots), fired on mount and covered by the skeleton.
+- loading.tsx added to /book-a-viewing so cold visits show a skeleton instead of blank space.
+
+
