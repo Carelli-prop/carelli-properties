@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ApartmentStickyCta({
   id,
   label,
@@ -7,12 +9,12 @@ export default function ApartmentStickyCta({
 }) {
   return (
     <div className="sticky-cta">
-      <a
+      <Link
         className="btn btn-primary btn-block"
         href={`/book-a-viewing?apartment=${id}`}
       >
         Book a viewing of {label}
-      </a>
+      </Link>
     </div>
   );
 }
