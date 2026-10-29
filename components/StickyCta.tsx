@@ -1,11 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function StickyCta() {
   const pathname = usePathname();
-  
-  // Hide the sticky bar on the booking page, admin, and individual apartment pages
+
   if (
     pathname.startsWith("/book-a-viewing") ||
     pathname.startsWith("/admin") ||
@@ -16,9 +16,9 @@ export default function StickyCta() {
 
   return (
     <div className="sticky-cta">
-      <a className="btn btn-primary btn-block" href="/book-a-viewing">
+      <Link className="btn btn-primary btn-block" href="/book-a-viewing">
         Book a viewing
-      </a>
+      </Link>
     </div>
   );
 }
