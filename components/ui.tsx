@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { site, type Apartment, money } from "@/content/site";
 
@@ -184,9 +185,9 @@ export function BookCta({
     ? `/book-a-viewing?apartment=${apartment.id}`
     : "/book-a-viewing";
   return (
-    <a className={`btn btn-primary ${big ? "btn-big" : ""}`} href={href}>
+    <Link className={`btn btn-primary ${big ? "btn-big" : ""}`} href={href}>
       {label}
-    </a>
+    </Link>
   );
 }
 
