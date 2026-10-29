@@ -8,15 +8,17 @@ type BookableDate = { iso: string; label: string };
 
 export default function BookingFlow({
   initialApartment,
+  initialDates,
 }: {
   initialApartment?: string;
+  initialDates: BookableDate[];
 }) {
   const lower = initialApartment?.toLowerCase() ?? "";
   const validInitial = lower === "88a" || lower === "88b" ? lower : "";
   const [step, setStep] = useState(validInitial ? 2 : 1);
   const [apartment, setApartment] = useState(validInitial);
-  const [dates, setDates] = useState<BookableDate[]>([]);
-  const [date, setDate] = useState("");
+  const [dates] = useState<BookableDate[]>(initialDates);
+  const [date, setDate] = useState(initialDates[0]?.iso ?? "");
   const [slots, setSlots] = useState<string[]>([]);
   const [time, setTime] = useState("");
   const [name, setName] = useState("");
@@ -32,15 +34,6 @@ export default function BookingFlow({
   const [success, setSuccess] = useState(false);
   const [pulse, setPulse] = useState(false);
   const prevCan = useRef(false);
-
-  useEffect(() => {
-    fetch("/api/dates")
-      .then((r) => r.json())
-      .then((data) => {
-        setDates(data.dates);
-        if (data.dates.length > 0) setDate(data.dates[0].iso);
-      });
-  }, []);
 
   useEffect(() => {
     if (!apartment || !date) return;
